@@ -13,8 +13,7 @@ public class Program
         var providerName = "Microsoft.Data.Sqlite";
         var connectionString = "Data Source=:memory:";
 
-        // The static constructor of DatabaseHelper will register the providers.
-        // We just need to create an instance.
+        // The provider is registered on-demand when the DatabaseHelper is instantiated.
         var dbHelper = new DatabaseHelper(providerName, connectionString);
 
         // We need to open and hold the connection for in-memory databases

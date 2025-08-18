@@ -5,17 +5,42 @@ using Microsoft.Data.Sqlite;
 using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace DatabaseHelperApp
 {
     public class DatabaseHelper
     {
-        static DatabaseHelper()
+        private static readonly object _lock = new object();
+        private static readonly HashSet<string> _registeredProviders = new HashSet<string>();
+
+        private static void RegisterProvider(string providerName)
         {
-            DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", SqliteFactory.Instance);
-            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
-            DbProviderFactories.RegisterFactory("MySql.Data.MySqlClient", MySqlClientFactory.Instance);
-            DbProviderFactories.RegisterFactory("Oracle.ManagedDataAccess.Client", OracleClientFactory.Instance);
+            lock (_lock)
+            {
+                if (_registeredProviders.Contains(providerName))
+                {
+                    return;
+                }
+
+                switch (providerName)
+                {
+                    case "Microsoft.Data.Sqlite":
+                        DbProviderFactories.RegisterFactory(providerName, SqliteFactory.Instance);
+                        break;
+                    case "System.Data.SqlClient":
+                        DbProviderFactories.RegisterFactory(providerName, SqlClientFactory.Instance);
+                        break;
+                    case "MySql.Data.MySqlClient":
+                        DbProviderFactories.RegisterFactory(providerName, MySqlClientFactory.Instance);
+                        break;
+                    case "Oracle.ManagedDataAccess.Client":
+                        DbProviderFactories.RegisterFactory(providerName, OracleClientFactory.Instance);
+                        break;
+                }
+
+                _registeredProviders.Add(providerName);
+            }
         }
 
         private readonly DbProviderFactory _providerFactory;
@@ -23,6 +48,8 @@ namespace DatabaseHelperApp
 
         public DatabaseHelper(string providerName, string connectionString)
         {
+            RegisterProvider(providerName);
+
             try
             {
                 _providerFactory = DbProviderFactories.GetFactory(providerName);
