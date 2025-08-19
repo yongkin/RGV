@@ -1,0 +1,106 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<TargetFrameworks></TargetFrameworks>
+		<ApplicationIcon>View\SafeRunLogon.ico</ApplicationIcon>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="ControlViews\FT_FullLayout_CC_2290-1500.xaml.cs" />
+	  <Compile Remove="ControlViews\FT_InWarehouse_CC.xaml.cs" />
+	  <Compile Remove="ControlViews\FT_OutWarehouse_CC.xaml.cs" />
+	  <Compile Remove="ControlViews\FT_OutWarehouse_CC_Vertical.xaml.cs" />
+	  <Compile Remove="ControlViews\堆垛机第一版.xaml.cs" />
+	  <Compile Remove="View\DashboardDetailForm.xaml.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="ControlViews\ControlViews.rar" />
+	  <None Remove="ControlViews\堆垛机第一版.xaml.zip" />
+	  <None Remove="image\back.jpg" />
+	  <None Remove="View\SafeRunLogon.ico" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="ControlViews\FT_FullLayout_CC_2290-1500.xaml" />
+    <Page Remove="ControlViews\FT_InWarehouse_CC.xaml" />
+    <Page Remove="ControlViews\FT_OutWarehouse_CC.xaml" />
+    <Page Remove="ControlViews\FT_OutWarehouse_CC_Vertical.xaml" />
+    <Page Remove="ControlViews\堆垛机第一版.xaml" />
+    <Page Remove="Resources\BaseStyles.xaml" />
+    <Page Remove="View\DashboardDetailForm.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="View\SafeRunLogon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MicroSvr.Comm">
+      <HintPath>..\00.SafeRun.BIN\MicroSvr.Comm.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroSvr.DBApp">
+      <HintPath>..\00.SafeRun.BIN\MicroSvr.DBApp.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroSvr.Logging">
+      <HintPath>..\00.SafeRun.BIN\MicroSvr.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroSvr.RPC.Client">
+      <HintPath>..\00.SafeRun.BIN\MicroSvr.RPC.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroSvr.XRun">
+      <HintPath>..\00.SafeRun.BIN\MicroSvr.XRun.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlBase">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlBiz.SpiService">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlBiz.SpiService.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlComm">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlComm.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlEquip.Spi">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlEquip.Spi.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlEquip.SpiService">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlEquip.SpiService.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlEquipTasks.Spi">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlEquipTasks.Spi.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.CtrlEquipTasks.SpiService">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.CtrlEquipTasks.SpiService.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.EquipData.Server">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.EquipData.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.EquipData.Spi">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.EquipData.Spi.dll</HintPath>
+    </Reference>
+    <Reference Include="SafeRun.WMS.Spi">
+      <HintPath>..\00.SafeRun.BIN\SafeRun.WMS.Spi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="image\" />
+    <Folder Include="Resources\Assembly\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="devexpress.wpf.core" Version="21.2.6" />
+    <PackageReference Include="HandyControl" Version="3.5.1" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\back.jpg" />
+    <Resource Include="View\saferun64X64.png" />
+    <Resource Include="View\SafeRunLogon.ico" />
+  </ItemGroup>
+
+</Project>

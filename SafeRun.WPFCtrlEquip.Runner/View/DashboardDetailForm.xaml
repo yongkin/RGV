@@ -1,0 +1,56 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SafeRun.WPFCtrlEquip.WPFRunner"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="SafeRun.WPFCtrlEquip.WPFRunner.DashboardDetailForm"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1080"
+    >
+    <!--<UserControl.Resources>
+        <ResourceDictionary
+            Source="pack://application:,,,/SafeRun.WPFCtrlEquip.WPFRunner;component/Resources/BaseStyles.xaml" />
+    </UserControl.Resources>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="1">
+            <TabControl>
+                <TabItem Header="明细数据">
+                    <Grid Background="#FFE5E5E5">
+                        <ListView ItemsSource="{Binding FrmDatas}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="节点ID" DisplayMemberBinding="{Binding NodeId,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="节点编码" DisplayMemberBinding="{Binding NodeCode,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="节点名称" DisplayMemberBinding="{Binding NodeName,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="节点值" DisplayMemberBinding="{Binding NodeValue,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Width="180" Header="节点时间" DisplayMemberBinding="{Binding ValueTime,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="有效标记" DisplayMemberBinding="{Binding IsExpired,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="写入值" DisplayMemberBinding="{Binding WriteValue,UpdateSourceTrigger=PropertyChanged}" />
+                                    <GridViewColumn Header="写入时间" DisplayMemberBinding="{Binding WriteTime,UpdateSourceTrigger=PropertyChanged}" />
+                                    <!--<GridViewColumn Header="写入时间" DisplayMemberBinding="{Binding WriteTime,UpdateSourceTrigger=PropertyChanged}" />-->
+                                    <!--<GridViewColumn Header="BlackParam" DisplayMemberBinding="{Binding BlackParam,UpdateSourceTrigger=PropertyChanged}" />-->
+                                    
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="控制面板">
+                    <ContentControl  x:Name="controlPanel" Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+
+
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

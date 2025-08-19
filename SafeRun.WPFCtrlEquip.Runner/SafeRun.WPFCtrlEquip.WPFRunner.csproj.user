@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\MyWork\SourceCode\WCS\WPF\gitee\SafeRun.ControlsWPF\SafeRun.WPFCtrlEquip.Runner\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="ControlViews\FT_FullLayout_CC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ControlViews\UserControl1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomizeControls\DateTimeControls.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="CustomizeControls\StackerShelves_1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainFrm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ControlViews\FT_FullLayout_CC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CustomizeControls\DateTimeControls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SafeRun.WCS.IP_Controls\ControlPage\PopupWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DashboardForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Update="View\DashboardForm.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Update="MainFrm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1312 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:IP_Controls="clr-namespace:SafeRun.WCS.IP_Controls" 
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:CustomizeControls="clr-namespace:SafeRun.WPFCtrlEquip.WPFRunner.CustomizeControls" 
+    mc:Ignorable="av">
+
+    <!-- Define your default colors here -->
+
+    <!--CustomToolTip not feasible-->
+    <!--Background="{StaticResource DefaultStrokeColor}" -->
+    <Color x:Key="DefaultBackgroudColor">White</Color>
+    <Color x:Key="DefaultStrokeColor">Black</Color>
+
+    <!--<ToolTip x:Key="CustomToolTip">
+        <StackPanel>
+            <TextBlock FontWeight="Bold" Text="{Binding ShowTitle,RelativeSource={RelativeSource TemplatedParent}}" />
+            <TextBlock Text="{Binding ShowContent,RelativeSource={RelativeSource TemplatedParent}}" />
+        </StackPanel>
+    </ToolTip>-->
+
+    <ToolTip x:Key="CustomToolTip1">
+        <StackPanel >
+            <TextBlock FontWeight="Bold" Text="AAA" />
+            <TextBlock Text="CCC" />
+        </StackPanel>
+    </ToolTip>
+
+
+    <Style TargetType="{x:Type IP_Controls:CustomControl1}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:CustomControl1}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--线体样式-->
+    <Style TargetType="{x:Type IP_Controls:LineBody}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:LineBody}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill"  >
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <!--<StaticResourceExtension  ResourceKey="CustomToolTip" /> not feasible -->
+                            <!--<DynamicResourceExtension  ResourceKey="CustomToolTip" />  not feasible-->
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="197" >
+                            <Grid>
+                                <!--设置报警绑定控件 x:Name="rect" 与  Storyboard.TargetName="rect"  -->
+                                <Rectangle x:Name="rect" HorizontalAlignment="Left" Height="137" Margin="0,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Top" Width="197" StrokeThickness="3"  />
+                                <!--设置自动、手动模式-->
+                                <Rectangle HorizontalAlignment="Left" Height="120" Margin="4,9,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" VerticalAlignment="Top" Width="188"/>
+                                <Path Data="M4,68.38 L192,68.38" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="1" Margin="4,68,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="188"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="28,9,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="53,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Center" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="76,9,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="120" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Center" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="120,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Center" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="145,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Center" Width="1"/>
+                                <Path Data="M20.444444,10 L20.888889,129" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="120" Margin="168,9,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="1"/>
+
+                                <!--出库图标-->
+                                <Grid Visibility="{Binding IsVisOutbound, FallbackValue=Hidden, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Background="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" Height="33" Width="34" Canvas.Left="676.001" Canvas.Top="178" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="82,53,0,0">
+                                    <Path Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" >
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="0.045"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                        <Path.Data>
+                                            <GeometryGroup FillRule="Nonzero">
+                                                <PathGeometry  Figures="M842.369507 80.528297h-82.127746v44.877008h82.127746c20.938792 0 37.973227 17.035651 37.973227 37.974443v696.943724c0 20.938792-17.034434 37.973227-37.973227 37.973227H180.595413c-20.938792 0-37.973227-17.034434-37.973227-37.973227V163.379748c0-20.938792 17.034434-37.974443 37.973227-37.974443h82.127746V80.528297H180.595413c-45.757617 0-82.850235 37.093834-82.850235 82.851451v696.943724c0 45.757617 37.093834 82.851451 82.850235 82.851451h661.772877c45.757617 0 82.850235-37.093834 82.850235-82.851451V163.379748c0.001216-45.757617-37.092618-82.851451-82.849018-82.851451z"   />
+
+                                                <PathGeometry  Figures="M511.483068 206.126995l157.339548 157.339548-31.693414 31.693414-125.646134-125.647351-125.647351 125.647351-31.693413-31.693414zM261.240476 754.745252h500.485184v44.821057H261.240476z"  />
+                                                <PathGeometry  Figures="M489.072539 231.0711h44.821058v453.356785h-44.821058z" />
+                                            </GeometryGroup>
+
+                                        </Path.Data>
+                                    </Path>
+                                </Grid>
+                                <!--入库图标-->
+                                <Grid Visibility="{Binding IsVisInbound, FallbackValue=Hidden, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Background="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" Height="33" Width="34" Canvas.Left="676.001" Canvas.Top="178" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="82,53,0,0">
+                                    <Path Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" >
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="0.045"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                        <Path.Data>
+                                            <GeometryGroup FillRule="Nonzero">
+                                                <PathGeometry  Figures="M842.369507 80.528297h-82.127746v44.877008h82.127746c20.938792 0 37.973227 17.035651 37.973227 37.974443v696.943724c0 20.938792-17.034434 37.973227-37.973227 37.973227H180.595413c-20.938792 0-37.973227-17.034434-37.973227-37.973227V163.379748c0-20.938792 17.034434-37.974443 37.973227-37.974443h82.127746V80.528297H180.595413c-45.757617 0-82.850235 37.093834-82.850235 82.851451v696.943724c0 45.757617 37.093834 82.851451 82.850235 82.851451h661.772877c45.757617 0 82.850235-37.093834 82.850235-82.851451V163.379748c0.001216-45.757617-37.092618-82.851451-82.849018-82.851451z"   />
+
+                                                <PathGeometry  Figures="M511.483068 206.126995l157.339548 157.339548-31.693414 31.693414-125.646134-125.647351-125.647351 125.647351-31.693413-31.693414zM261.240476 754.745252h500.485184v44.821057H261.240476z"  />
+                                                <PathGeometry  Figures="M489.072539 231.0711h44.821058v453.356785h-44.821058z" />
+                                            </GeometryGroup>
+
+                                        </Path.Data>
+                                    </Path>
+                                </Grid>
+                            </Grid>
+
+                            <!--任务号-->
+                            <TextBox HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="{Binding CVTaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Top" Width="145" TextAlignment="Center" Background="{Binding CVTestBColor, RelativeSource={RelativeSource Mode=TemplatedParent},TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" Height="50" FontSize="44" Margin="0,11,0,0" IsReadOnly="True" FontFamily="Arial Rounded MT Bold" BorderThickness="0,0,0,0" FontWeight="Bold" />
+
+                            <Label Content="{Binding CVNo, RelativeSource={RelativeSource Mode=TemplatedParent}}"  HorizontalAlignment="Center" Margin="0,0,0,13" VerticalAlignment="Bottom" Background="White" Width="120" Height="43" FontSize="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" />
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <!--传感器样式-->
+    <Style TargetType="{x:Type IP_Controls:Sensor}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:Sensor}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="15" Width="15">
+                            <!--设置报警绑定控件 x:Name="rect" 与  Storyboard.TargetName="rect"  -->
+                            <Rectangle x:Name="rect" HorizontalAlignment="Center" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Center" Stretch="Fill" Width="15" Height="15" />
+                            <!--设置自动、手动模式背景颜色 ContrBackground 配置: TagReadText ="Show:AutoMode#AutoMode" -->
+                            <Rectangle HorizontalAlignment="Center" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Center" Stretch="Fill" Width="10" Height="10" Fill="{Binding ContrBackground, FallbackValue=IP_Controls:ColorLibrary.DefaultBackgroundColor, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--单纯测试使用-->
+    <Style TargetType="{x:Type IP_Controls:TestControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:TestControl}">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="AlarmOn">
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="rect">
+                                            <DiscreteColorKeyFrame KeyTime="0:0:0.8" Value="Red"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                        <!-- Other animations go here -->
+                                    </Storyboard>
+                                </VisualState>
+                                <!-- Other visual states go here -->
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Viewbox x:Name="viewbox" Stretch="Fill">
+                            <!-- Your other elements go here -->
+                        </Viewbox>
+
+                        <Rectangle x:Name="rect" Width="50" Height="50">
+                            <Rectangle.Style>
+                                <Style TargetType="{x:Type Rectangle}">
+                                    <Setter Property="Fill" Value="Blue"/>
+                                </Style>
+                            </Rectangle.Style>
+                        </Rectangle>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--龙门样式-横向-->
+    <Style TargetType="{x:Type IP_Controls:Gantry}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:Gantry}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff"/>
+                                <VisualState x:Name="AlarmOn"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid x:Name="GantryContr" Background="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" Height="284" Width="578">
+
+                            <!--<Grid x:Name="GantryContr" Background="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" RenderTransformOrigin="0.5,0.5" >-->
+
+                            <Rectangle x:Name="rect"  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"/>
+                            <Grid x:Name="Gantry1" Visibility="{Binding IsShowGantry1, FallbackValue=Visible, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Width="68" HorizontalAlignment="Right" Margin="0,0,70,0">
+                                <Rectangle  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" Width="30" />
+                                <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Generic1TaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Center" Width="50" Height="25" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="1" TextAlignment="Center" VerticalAlignment="Top" Margin="0,24,0,0" FontSize="18"/>
+                            </Grid>
+                            <Grid x:Name="Gantry2" Visibility="{Binding IsShowGantry1, FallbackValue=Visible, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Width="68" HorizontalAlignment="Right">
+                                <Rectangle  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" Width="30" />
+                                <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Generic2TaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Center" Width="50" Height="25" TextAlignment="Center" VerticalContentAlignment="Center"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="2" TextAlignment="Center" VerticalAlignment="Top" Margin="0,24,0,0" FontSize="18"/>
+                            </Grid>
+
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--龙门样式-纵向-->
+    <Style TargetType="{x:Type IP_Controls:GantryL}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:GantryL}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff"/>
+                                <VisualState x:Name="AlarmOn"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid x:Name="GantryContr"  Height="578" Width="284">
+                            <Rectangle x:Name="rect"  Stroke="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" StrokeThickness="1.5"/>
+                            <Grid  x:Name="Gantry1" Visibility="{Binding IsShowGantry1, FallbackValue=Visible, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="284" Margin="0,452,0,76" >
+                                <Rectangle Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" Margin="0,14,0,14" />
+                                <TextBox RenderTransformOrigin="0.5,0.5"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Generic1TaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Center" Width="50" Height="25" TextAlignment="Center" VerticalContentAlignment="Center"  >
+                                    <TextBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </TextBox.RenderTransform>
+                                </TextBox>
+                                <TextBlock HorizontalAlignment="Left" Margin="236,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </Grid>
+                            <Grid  x:Name="Gantry2" Visibility="{Binding IsShowGantry2, FallbackValue=Visible, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="284" Margin="0,516,0,12" >
+                                <Rectangle  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}" Margin="0,14,0,14" />
+                                <TextBox RenderTransformOrigin="0.5,0.5"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Generic2TaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Center" Width="50" Height="25" TextAlignment="Center" VerticalContentAlignment="Center"  >
+                                    <TextBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </TextBox.RenderTransform>
+                                </TextBox>
+                                <TextBlock HorizontalAlignment="Left" Margin="236,0,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--方向箭头双样式-->
+    <Style TargetType="{x:Type IP_Controls:DirectionArrow}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:DirectionArrow}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="20" Width="55" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle x:Name="rect" HorizontalAlignment="Left" Height="20" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Top" Width="55"/>
+                            <Path Data="M1024 512L512 128v213.333333H0v341.333334h512v213.333333l512-384z" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Margin="34,4,9,4" Stretch="Fill" />
+                            <Path Data="M1024 512L512 128v213.333333H0v341.333334h512v213.333333l512-384z" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Margin="10,4,33,4" Stretch="Fill" />
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--方向箭头单样式-->
+    <Style TargetType="{x:Type IP_Controls:UnidirectionalArrow}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:UnidirectionalArrow}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="40" Width="40" >
+                            <Rectangle x:Name="rect" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"/>
+                            <Path Data="M1024 512L512 128v213.333333H0v341.333334h512v213.333333l512-384z" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" />
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--堆垛机样式-->
+    <Style TargetType="{x:Type IP_Controls:Stacker}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:Stacker}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <!--新版堆垛机样式-2025-06-12 变更-->
+                        <Grid x:Name="StackerContr"  Height="60" Width="504" VerticalAlignment="Top" >
+                            <Rectangle x:Name="rect" />
+
+                            <!--堆垛机内运行线样式-->
+                            <Grid Height="20" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Rectangle Fill="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" Width="2" Height="8" HorizontalAlignment="Right" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Rectangle Fill="{x:Static IP_Controls:ColorLibrary.GroundTrackB}"  Height="1.5" />
+                                </Grid>
+                                
+                                <Grid Grid.Column="2">
+                                    <Rectangle Fill="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" Width="2" Height="8" HorizontalAlignment="Left" />
+                                </Grid>
+                            </Grid>
+
+                            <!--上边货架-->
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" Height="20" >
+
+                                <Path Stretch="Fill" Width="460" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="-1,3,0,0" HorizontalAlignment="Center" Visibility="Hidden">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry Figures="M50,330 L162.4962,330"/>
+                                    </Path.Data>
+                                    <!--<Path.StrokeDashArray>
+                         -->
+                                    <!--定义虚线样式：两短虚线 + 两长虚线-->
+                                    <!--
+                        2,3,2,3,15,3
+                    </Path.StrokeDashArray>-->
+                                </Path>
+
+                                <Path Stretch="Fill" Width="460" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+      Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+      RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="-1,16,0,0" Visibility="Hidden">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry Figures="M58.079533,330 L162.4962,330"/>
+                                    </Path.Data>
+                                    <!--<Path.StrokeDashArray>
+                         -->
+                                    <!--定义虚线样式：两短虚线 + 两长虚线-->
+                                    <!-- 
+                        2,3,2,3,15,3
+                    </Path.StrokeDashArray>-->
+                                </Path>
+
+
+                                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="CustomizeControls:StackerShelves_1">
+                                            <Setter Property="Margin" Value="1,0,1,0"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+
+                                </StackPanel>
+
+
+
+                            </Grid>
+                            <!--下边货架-->
+                            <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Height="20" >
+
+                                <Path Stretch="Fill" Width="460" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="-1,3,0,0" HorizontalAlignment="Center" Visibility="Hidden">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry Figures="M50,330 L162.4962,330"/>
+                                    </Path.Data>
+                                    <!--<Path.StrokeDashArray>
+                         -->
+                                    <!--定义虚线样式：两短虚线 + 两长虚线-->
+                                    <!--
+                        2,3,2,3,15,3
+                    </Path.StrokeDashArray>-->
+                                </Path>
+
+                                <Path Stretch="Fill" Width="460" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+      Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+      RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="-1,16,0,0" Visibility="Hidden">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                    <Path.Data>
+                                        <PathGeometry Figures="M58.079533,330 L162.4962,330"/>
+                                    </Path.Data>
+                                    <!--<Path.StrokeDashArray>
+                         -->
+                                    <!--定义虚线样式：两短虚线 + 两长虚线-->
+                                    <!-- 
+                        2,3,2,3,15,3
+                    </Path.StrokeDashArray>-->
+                                </Path>
+
+
+                                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="CustomizeControls:StackerShelves_1">
+                                            <Setter Property="Margin" Value="1,0,1,0"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+                                    <CustomizeControls:StackerShelves_1 HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="40"/>
+
+                                </StackPanel>
+
+
+
+                            </Grid>
+
+
+                            <!--左侧 显示标题-不显示现在不用了-->
+                            <TextBox Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Height="15" Margin="6,3,0,0" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Visibility="Hidden" ></TextBox>
+
+                            <!--右侧 显示堆垛机状态-不显示现在不用了-->
+                            <Grid  Width="36" Height="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,2,0,0" Visibility="Hidden">
+
+                                <Rectangle   RadiusX="2" RadiusY="2" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"/>
+                                <!-- ModeLamp 手自动灯，常亮: 手动时:ManualRunColor ; 自动时: AutoRunColor -->
+                                <Ellipse x:Name="ModeLamp_" Height="10" Width="10" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="4,0,0,0" >
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="{x:Static IP_Controls:ColorLibrary.BorderColor}" />
+                                    </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <ToolTip>
+                                            <StackPanel>
+                                                <TextBlock Text="手自动灯" />
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Ellipse.ToolTip>
+                                </Ellipse>
+
+                                <!-- HeartbeatLamp 心跳灯，闪烁: 连通时:AutoRunColor ; 断开时: AlarmColor-->
+                                <Ellipse x:Name="HeartbeatLamp_" Height="10" Width="10" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,4,0" >
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="{x:Static IP_Controls:ColorLibrary.BorderColor}" />
+                                    </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <ToolTip>
+                                            <StackPanel>
+                                                <TextBlock Text="心跳灯" />
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Ellipse.ToolTip>
+                                </Ellipse>
+
+                            </Grid>
+
+                            <!--中间显示是否启用-->
+                            <Label Content="{Binding UseTxt, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="18" FontSize="9" Background="#FFFBF7F7" Margin="0,1,0,0" VerticalContentAlignment="Center" Padding="6,0,6,0"></Label>
+
+                            <!--显示库存量-->
+                            <Grid Height="15" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,2" Width="373" >
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="空库位数:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                        <TextBox Text="{Binding CrnEmptyNum, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="有货位数:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                        <TextBox Text="{Binding CrnMaterNum, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="空托位数:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                        <TextBox Text="{Binding CrnPalletNum, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="库位使用率:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                        <TextBox Text="{Binding CrnRatio, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="15" Background="White" FontSize="11" TextAlignment="Center"  IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" ></TextBox>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+
+
+                            </Grid>
+
+                            <!--运行堆垛机-->
+                            <Grid x:Name="StackerCrn" VerticalAlignment="Center" HorizontalAlignment="Left" Width="61" Margin="15,0,0,0">
+                                <Rectangle Stroke="{x:Static IP_Controls:ColorLibrary.CrnOrangeB}" Width="20" Height="60" HorizontalAlignment="Left" Fill="#FFFDFDFD" />
+
+                                <Label Content="{Binding ShowCrnNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="9" HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" Width="21" Height="20" FontWeight="Bold" Margin="-1,0,0,0" />
+
+                                <!--设备运行状态-->
+                                <Grid  Width="18" Height="39" HorizontalAlignment="Left" Margin="-15,0,0,0"    >
+
+                                    <Rectangle   RadiusX="2" RadiusY="2" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" Stroke="{x:Static IP_Controls:ColorLibrary.CrnOrangeB}"/>
+
+                                    <!-- ModeLamp 手自动灯，常亮: 手动时:ManualRunColor ; 自动时: AutoRunColor -->
+                                    <Ellipse x:Name="ModeLamp" Height="10" Width="10" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,4,0,0" >
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{x:Static IP_Controls:ColorLibrary.BorderColor}" />
+                                        </Ellipse.Fill>
+                                        <Ellipse.ToolTip>
+                                            <ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="手自动灯" />
+                                                </StackPanel>
+                                            </ToolTip>
+                                        </Ellipse.ToolTip>
+                                    </Ellipse>
+
+                                    <!-- HeartbeatLamp 心跳灯，闪烁: 连通时:AutoRunColor ; 断开时: AlarmColor-->
+                                    <Ellipse x:Name="HeartbeatLamp" Height="10" Width="10" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,4" >
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="{x:Static IP_Controls:ColorLibrary.BorderColor}" />
+                                        </Ellipse.Fill>
+                                        <Ellipse.ToolTip>
+                                            <ToolTip>
+                                                <StackPanel>
+                                                    <TextBlock Text="心跳灯" />
+                                                </StackPanel>
+                                            </ToolTip>
+                                        </Ellipse.ToolTip>
+                                    </Ellipse>
+
+                                </Grid>
+
+                                <!--任务信息-->
+                                <Grid Width="50" Height="43" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,-5,0" >
+                                    <!--<Rectangle Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Fill="White"  />-->
+                                    <StackPanel>
+                                        <StackPanel.Resources>
+                                            <Style TargetType="TextBox">
+                                                <Setter Property="Margin" Value="0,0,0,0"/>
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <TextBox TextWrapping="Wrap"  Text="{Binding StackerTaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" BorderBrush="{x:Static IP_Controls:ColorLibrary.BorderColorB}" TextAlignment="Center" HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" IsReadOnly="True" FontSize="10" VerticalAlignment="Top" Width="48" Height="15" HorizontalAlignment="Center"  />
+                                        <TextBox TextWrapping="Wrap"  Text="{Binding CrnTargetLoc, RelativeSource={RelativeSource Mode=TemplatedParent}}" BorderBrush="{x:Static IP_Controls:ColorLibrary.BorderColorB}" TextAlignment="Center" HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" IsReadOnly="True" FontSize="8" VerticalAlignment="Center" Width="48" Height="15" HorizontalAlignment="Center" Margin="0,-1,0,0"/>
+                                        <TextBox TextWrapping="Wrap"  Text="{Binding CrnTaskType, RelativeSource={RelativeSource Mode=TemplatedParent}}" BorderBrush="{x:Static IP_Controls:ColorLibrary.BorderColorB}" TextAlignment="Center" HorizontalContentAlignment="Center"
+VerticalContentAlignment="Center" IsReadOnly="True" FontSize="8" VerticalAlignment="Top" Width="48" Height="15" HorizontalAlignment="Center" Margin="0,-1,0,0" />
+                                    </StackPanel>
+
+                                    <Rectangle Stroke="{x:Static IP_Controls:ColorLibrary.CrnOrangeB}" Margin="1,0,1,0" />
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+
+
+
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--RGV曲线轨道样式-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Radian}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Radian}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137" RenderTransformOrigin="0.5,0.5" >
+                            <Grid>
+                                <Rectangle  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" StrokeThickness="5" RadiusX="20" RadiusY="20" Width="92" Height="92" Margin="92,92,-47,-46">
+                                    <!-- 应用裁剪效果 -->
+                                    <Rectangle.Clip>
+                                        <!-- 使用裁剪矩形 -->
+                                        <RectangleGeometry Rect="0, 0, 50, 50"/>
+                                    </Rectangle.Clip>
+                                </Rectangle>
+                                <Rectangle  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" StrokeThickness="5" RadiusX="50" RadiusY="50" Width="198" Height="198" Margin="39,39,-100,-100">
+                                    <!-- 应用裁剪效果 -->
+                                    <Rectangle.Clip>
+                                        <!-- 使用裁剪矩形 -->
+                                        <RectangleGeometry Rect="0, 0, 103, 103"/>
+                                    </Rectangle.Clip>
+                                </Rectangle>
+                            </Grid>
+
+                            <IP_Controls:RGV_Car x:Name="RGVCar" Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Height="64" RenderTransformOrigin="0.5,0.5" Margin="44,49,0,0" >
+                                <IP_Controls:RGV_Car.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="48.4"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </IP_Controls:RGV_Car.RenderTransform>
+                            </IP_Controls:RGV_Car>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--RGV直线轨道样式-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Straight}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Straight}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137" >
+                            <Grid Visibility="Visible" >
+                                <Path Data="M82,0 L82,140" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="145" Margin="92,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" Stretch="Fill" StrokeThickness="5" VerticalAlignment="Center" />
+                                <Path Data="M82,0 L82,140" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Left" Height="145" Margin="39,0,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" Stretch="Fill" StrokeThickness="5"  VerticalAlignment="Center" />
+                            </Grid>
+                            <!--<IP_Controls:RGV_Car x:Name="RGVCar" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center" Width="94" Height="73" />-->
+                            <IP_Controls:RGV_Cars x:Name="RGVCar" Visibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" Height="125" />
+
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--RGV 弯道样式-->
+    <!--参考值 宽度:56.92 高度:27 靠左排位值:11.4
+    /// 例子:
+    <IP_Controls:RGV_Curve HorizontalAlignment="Left" Margin="11.4,0,0,0" VerticalAlignment="Top" Width="56.92" Height="27" RenderTransformOrigin="0.5,0.5">-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Curve}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Curve}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="20" Width="56.92" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle HorizontalAlignment="Left" Height="40" Stroke="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" VerticalAlignment="Top" Width="56.92" StrokeThickness="1.46" RadiusX="10" RadiusY="10"/>
+                            <Rectangle HorizontalAlignment="Center" Height="20" Stroke="{x:Static IP_Controls:ColorLibrary.GroundTrackB}" VerticalAlignment="Top" Width="26" Margin="0,11,0,0" StrokeThickness="1.46" RadiusX="5" RadiusY="5"/>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--RGV样式-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Car}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Car}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Visibility="{Binding IsVisibleRgv, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="94" Height="73">
+                            <Rectangle Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}"
+  Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+                            <Path Data="M0.5,67.26 L93.5,67.26" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="1" Margin="0,66,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="94"/>
+                            <Path Data="M0.5,67.26 L93.5,67.26" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="1" Margin="0,6,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="94"/>
+                            <Ellipse HorizontalAlignment="Center" Height="3" Margin="0,68,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.AlarmColorB}" VerticalAlignment="Top" Width="3" Fill="{x:Static IP_Controls:ColorLibrary.AlarmColorB}"/>
+                            <Ellipse HorizontalAlignment="Center" Height="3" Margin="0,2,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.AutoRunColorB}" VerticalAlignment="Top" Width="3" Fill="{x:Static IP_Controls:ColorLibrary.AutoRunColorB}" />
+                            <Label Content="{Binding RGVNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                            <TextBox HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="{Binding RGVTaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="14"/>
+                        </Grid>
+
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--RGV样式-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Item}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Item}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <!--<Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>-->
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Visibility="{Binding IsVisibleRgvItem, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="65" Height="135" >
+                            <Rectangle Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}"
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+                            <Path Data="M0.5,67.26 L93.5,67.26" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="1" Margin="0,27,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="94"/>
+
+                            <Ellipse x:Name="RGVItemModeLamp" HorizontalAlignment="Center" Height="20" Margin="0,5,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="20" Fill="{x:Static IP_Controls:ColorLibrary.AutoRunColorB}" />
+                            <Label Content="{Binding RGVItemNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" FontWeight="Bold" FontSize="40" Margin="0,29,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+
+                        </Grid>
+
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--多RGV样式-->
+    <Style TargetType="{x:Type IP_Controls:RGV_Cars}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:RGV_Cars}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Visibility="{Binding IsVisibleRgvs, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="94" Height="73">
+                            <Rectangle Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}"
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+                            <Path Data="M0.5,67.26 L93.5,67.26" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="1" Margin="0,66,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="94"/>
+                            <Path Data="M0.5,67.26 L93.5,67.26" Fill="{x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}" HorizontalAlignment="Center" Height="1" Margin="0,6,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" Width="94"/>
+
+                            <Grid Visibility="{Binding IsVisibleRgvs, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="84" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}"
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"  />
+                                <Grid>
+                                    <StackPanel x:Name="RGVItemPanel" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <!--<IP_Controls:RGV_Item  Width="20" Height="40" Margin="2,0,3,0"  />
+                                        <IP_Controls:RGV_Item  Width="20" Height="40" Margin="2,0,3,0"  />
+                                        <IP_Controls:RGV_Item  Width="20" Height="40" Margin="2,0,3,0"  />-->
+                                        <!--<Rectangle  Width="20" Height="40" Fill="#FFEE7171" Margin="2,0,3,0"  />
+                                        <Rectangle  Width="20" Height="40" Fill="#FF51DE52" Margin="2,0,3,0"  />
+                                        <Rectangle  Width="20" Height="40" Fill="#FF5474E1" Margin="2,0,3,0"  />-->
+                                    </StackPanel>
+                                </Grid>
+
+
+                            </Grid>
+                        </Grid>
+
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--EMS曲线轨道样式-->
+    <Style TargetType="{x:Type IP_Controls:EMS_Radian}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:EMS_Radian}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137" >
+                            <Grid >
+                                <Rectangle x:Name="rect" HorizontalAlignment="Left" Height="117" Margin="65,64,0,0" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Top" Width="116" StrokeThickness="5" RadiusX="25" RadiusY="25" >
+                                    <Rectangle.Clip>
+                                        <!-- 使用裁剪矩形 -->
+                                        <RectangleGeometry Rect="0, 0, 100, 100"/>
+                                    </Rectangle.Clip>
+
+                                </Rectangle>
+                                <IP_Controls:EMS_Car  x:Name="EMSCar" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Width="76" RenderTransformOrigin="0.5,0.5"  >
+                                    <IP_Controls:EMS_Car.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="50"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </IP_Controls:EMS_Car.RenderTransform>
+                                </IP_Controls:EMS_Car>
+
+                            </Grid>
+
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--EMS直线轨道样式-->
+    <Style TargetType="{x:Type IP_Controls:EMS_Straight}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:EMS_Straight}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137" >
+                            <Grid>
+                                <Rectangle x:Name="rect"/>
+                                <Path Data="M279.33333,195.38 L279.33333,415.42803" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Stretch="Fill" VerticalAlignment="Top" StrokeThickness="5" Margin="65,-3,0,0" />
+                                <IP_Controls:EMS_Car x:Name="EMSCar" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Width="76"  />
+                            </Grid>
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--EMS样式-->
+    <Style TargetType="{x:Type IP_Controls:EMS_Car}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:EMS_Car}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Visibility="{Binding IsVisibleEms, RelativeSource={RelativeSource Mode=TemplatedParent}}" Width="94" Height="73">
+                            <Grid>
+                                <Rectangle x:Name="rect" HorizontalAlignment="Center" Height="59" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" VerticalAlignment="Center" Width="94" Fill="{Binding ContrBackground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={x:Static IP_Controls:ColorLibrary.DefaultBackgroundColor}}"/>
+                                <Path Fill="{x:Static IP_Controls:ColorLibrary.AlarmColorB}" Stretch="Fill" Height="7" VerticalAlignment="Top"  Margin="0,66,2,0" Data="M0,0 L100,0 L80,50 L20,50 L0,0" />
+                                <Path Fill="{x:Static IP_Controls:ColorLibrary.AutoRunColorB}" Margin="0,0,0,66" Stretch="Fill" Data="M0,0 L100,0 L80,50 L20,50" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                            <Label Content="{Binding EMSNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="11" Height="23" Width="24"/>
+                            <TextBox HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="{Binding EMSTaskNo, RelativeSource={RelativeSource Mode=TemplatedParent}}" VerticalAlignment="Top" Width="52" TextAlignment="Center" FontSize="14"/>
+
+                        </Grid>
+
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--全景扫码样式-->
+    <Style TargetType="{x:Type IP_Controls:PanoScan}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:PanoScan}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137">
+                            <Grid>
+                                <Rectangle x:Name="rect" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"  />
+                                <Path Data="M870.4 652.8v76.8h-192l-64-76.8 70.4-51.2 32 44.8 153.6 6.4zM691.2 256l147.2 204.8-345.6 230.4s-64 44.8-160-32L249.6 556.8 691.2 256z m-12.8 179.2l32 51.2 51.2-32-32-51.2-51.2 32zM236.8 608s51.2 83.2 108.8 96l-64 44.8-76.8-121.6 32-19.2z m704 147.2H1024v243.2h-243.2v-83.2h160v-160z m-889.6 0h83.2v160h160v83.2H51.2v-243.2zM780.8 32H1024v243.2h-83.2V108.8h-160V32zM51.2 32h243.2v83.2H134.4v160H51.2V32z m0 0" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Margin="18,40,18,10" Stretch="Fill"/>
+
+                            </Grid>
+                            <TextBox  TextWrapping="Wrap" Text="{Binding TextContext, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Width="115" Height="25" TextAlignment="Center" Margin="12,10,10,102" FontSize="16" VerticalContentAlignment="Center"/>
+
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--机器人-->
+    <Style TargetType="{x:Type IP_Controls:Robot}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:Robot}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="137" Width="137">
+                            <Grid>
+                                <Rectangle x:Name="rect" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"  />
+                                <Path Data="M797.713605 41.54247a19.963294 19.963294 0 0 0-13.417952 7.670323l-60.094425 75.435071c-11.658891-14.624749-29.310861-24.299584-49.212793-24.299583h-81.81678c-26.856358 0-49.785511 17.590608-58.805811 41.562924h-198.160241A184.271843 184.271843 0 0 0 184.087755 61.362585c-101.391445 0-184.087755 82.69631-184.087755 184.087755a184.271843 184.271843 0 0 0 80.54862 152.138302c0.224996 0.143179 0.38863 0.470446 0.613626 0.613626v0.654534L301.699376 816.899639H140.622591c-33.708513 0-60.094425 29.065411-60.094425 62.630745v122.72517A21.476905 21.476905 0 0 0 102.270975 1023.998364h695.44263A21.476905 21.476905 0 0 0 819.456414 1002.255554v-122.72517c0-33.54488-26.385912-62.651199-60.094425-62.651199h-147.658834L347.107689 349.030383h187.278609c9.0203 23.951862 31.969907 41.522016 58.805811 41.522016h81.81678c19.901932 0 37.553902-9.65438 49.212793-24.279129l60.094425 75.435071a19.840569 19.840569 0 0 0 24.913209 5.113549l202.63971-110.595833a19.840569 19.840569 0 0 0-12.149792-37.083455 20.126928 20.126928 0 0 0-7.036243 2.577228l-187.278609 102.905055-67.110214-85.007634V171.937963l67.110214-85.007634 187.278609 102.270975a19.840569 19.840569 0 1 0 19.186035-34.526682l-202.63971-110.575378A20.024657 20.024657 0 0 0 797.713605 41.54247zM184.087755 102.270975a143.240727 143.240727 0 0 1 120.802475 65.842054c0.24545 0.409084 0.409084 0.87953 0.634081 1.26816 0.409084 0.87953 0.818168 1.759061 1.288614 2.556774a17.222432 17.222432 0 0 0 1.922694 3.845389c0.306813 0.552263 0.961347 0.715897 1.26816 1.26816 0.409084 0.63408 0.818168 1.288614 1.288615 1.922694 10.308914 19.820115 15.974726 42.503817 15.974726 66.476134 0 23.726866-5.829446 46.185572-15.974726 65.842054-0.163634 0.224996-0.490901 0.409084-0.634081 0.63408a9.531655 9.531655 0 0 0-0.654534 1.288614c-0.081817 0.143179 0.081817 0.470446 0 0.613626a9.65438 9.65438 0 0 0-1.26816 1.288614 22.540523 22.540523 0 0 0-3.845389 7.670323A143.240727 143.240727 0 0 1 184.087755 388.629705c-79.260006 0-143.179365-63.919359-143.179365-143.179365s63.919359-143.179365 143.179365-143.179365z m0 27.490438c-1.349977 0-2.474958 0.552263-3.845389 0.63408a21.59963 21.59963 0 0 0-3.824934 1.288614C116.732091 135.897671 68.398828 184.701381 68.398828 245.45034c0 63.448913 52.240014 115.688927 115.688927 115.688927s115.688927-52.240014 115.688927-115.688927c0-60.483055-48.005996-109.225401-107.384524-113.786687-0.224996 0-0.409084-0.613626-0.63408-0.613626a20.842825 20.842825 0 0 0-4.479469-0.654534c-1.104527 0-2.065874-0.63408-3.190854-0.63408z m409.0839 15.340646h81.81678c10.472548 0 18.531501 8.058953 18.5315 18.531501v163.63356a18.245142 18.245142 0 0 1-18.5315 18.5315h-81.81678a18.245142 18.245142 0 0 1-18.531501-18.5315V163.63356c0-10.472548 8.058953-18.531501 18.531501-18.531501zM182.799141 170.669803H184.087755A74.882808 74.882808 0 0 1 258.868292 245.45034 74.882808 74.882808 0 0 1 184.087755 320.230877 74.882808 74.882808 0 0 1 109.307218 245.45034a74.862354 74.862354 0 0 1 73.491923-74.780537z m175.149271 14.706566h171.937963v120.147942H357.948412c6.545342-18.92013 10.227097-38.985696 10.227098-60.073971s-3.681755-41.15384-10.227098-60.094425z m-43.465164 189.201304l249.929808 442.321966H347.087235L139.98851 423.770012C154.204176 427.329042 168.828925 429.538095 184.087755 429.538095c51.053671 0 96.993793-21.272363 130.395493-54.980876z m-173.860657 485.787131h188.567223c5.113549 2.14769 10.861178 2.14769 15.974726 0h414.197449c8.877121 0 16.629261 7.649869 16.62926 19.16558v101.002815H123.972876V879.530384c0-11.515712 7.772594-19.186035 16.62926-19.186034z" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" Margin="18,40,18,10" Stretch="Fill"/>
+
+                            </Grid>
+                            <TextBox  TextWrapping="Wrap" Text="{Binding TextContext, RelativeSource={RelativeSource Mode=TemplatedParent}}"  Width="115" Height="25" TextAlignment="Center" Margin="12,10,10,102" FontSize="11" VerticalContentAlignment="Center"/>
+
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--皮带机样式-->
+    <Style TargetType="{x:Type IP_Controls:BeltConveyor}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type IP_Controls:BeltConveyor}">
+                    <Viewbox x:Name="LayoutRoot" Stretch="Fill">
+                        <!--控件标签设置-->
+                        <Viewbox.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="{Binding ShowTitle, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <TextBlock Text="{Binding ShowContent, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            </StackPanel>
+                        </Viewbox.ToolTip>
+                        <VisualStateManager.VisualStateGroups>
+                            <!--设置报警样式-->
+                            <VisualStateGroup>
+
+                                <VisualState x:Name="AlarmOff">
+
+                                </VisualState>
+                                <VisualState x:Name="AlarmOn">
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--控件图标-->
+                        <Grid Height="40" Width="258" >
+                            <Rectangle HorizontalAlignment="Left" Height="20" Margin="0,0,0,0" VerticalAlignment="Center" Width="70" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}"/>
+                            <Rectangle HorizontalAlignment="Left" Height="30" Margin="69,0,0,0" VerticalAlignment="Center" Width="70" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+                            <Rectangle HorizontalAlignment="Left" Height="40" Margin="138,0,0,0" VerticalAlignment="Center" Width="120" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+                            <Rectangle HorizontalAlignment="Left" Height="30" Margin="145,0,0,0" VerticalAlignment="Center" Width="107" Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" />
+
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

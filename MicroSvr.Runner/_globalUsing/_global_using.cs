@@ -1,0 +1,14 @@
+﻿global using System.Collections.Concurrent;
+global using System.Reflection;
+global using System.Configuration;
+global using System.Data;
+global using System.Windows;
+global using System.Text;
+global using System.ComponentModel;
+global using System.Windows.Interop;
+global using System.Windows.Media;
+global using System.Windows.Media.Imaging;
+global using System.Diagnostics;
+global using System.Runtime.Loader;
+global using System.IO;
+global using System.Windows.Threading;

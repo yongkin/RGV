@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "MicroSvr.WPFApp": {
+      "commandName": "Project"
+    },
+    "执行目录": {
+      "commandName": "Executable",
+      "executablePath": "D:\\SafeRun.ILTS\\MicroSvr.Monitor\\MicroSvr.WPFApp.exe"
+    }
+  }
+}

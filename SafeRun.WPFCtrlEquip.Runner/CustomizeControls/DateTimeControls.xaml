@@ -1,0 +1,27 @@
+﻿<UserControl xmlns:hc="https://handyorg.github.io/handycontrol"  x:Class="SafeRun.WPFCtrlEquip.WPFRunner.CustomizeControls.DateTimeControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SafeRun.WPFCtrlEquip.WPFRunner.CustomizeControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="200">
+    <!--<Grid>-->
+        <StackPanel x:Name="sPanel" Orientation="Horizontal" VerticalAlignment="Center">
+            <!-- 日期选择器 -->
+
+        <!--<hc:DatePicker x:Name="datePicker" Width="90" Margin="0,0,10,0" SelectedDateFormat="Short" />-->
+            
+            <!-- 小时输入框 -->
+            <TextBox x:Name="hourTextBox" Width="40" MaxLength="2" HorizontalContentAlignment="Center"
+             VerticalContentAlignment="Center" Margin="0,0,5,0" />
+
+            <!-- 分隔符 -->
+            <TextBlock Text=":" VerticalAlignment="Center" FontSize="16" />
+
+            <!-- 分钟输入框 -->
+            <TextBox x:Name="minuteTextBox" Width="40" MaxLength="2" HorizontalContentAlignment="Center"
+             VerticalContentAlignment="Center" Margin="5,0,0,0" />
+        </StackPanel>
+    <!--</Grid>-->
+</UserControl>

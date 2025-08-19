@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="SafeRun.WPFCtrlEquip.WPFRunner.CustomizeControls.StackerShelves_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:IP_Controls="clr-namespace:SafeRun.WCS.IP_Controls"
+             xmlns:local="clr-namespace:SafeRun.WPFCtrlEquip.WPFRunner.CustomizeControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="40">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/SafeRun.WPFCtrlEquip.WPFRunner;component/SafeRun.WCS.IP_Controls/Themes/Generic.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry Figures="M0,330 L100,330"/>
+            </Path.Data>
+            <Path.StrokeDashArray>
+                 <!--定义虚线样式：两短虚线 + 两长虚线--> 
+                12,2,4,2,4,2,16
+            </Path.StrokeDashArray>
+        </Path>
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry Figures="M0,330 L100,330"/>
+            </Path.Data>
+            <Path.StrokeDashArray>
+                 <!--定义虚线样式：两短虚线 + 两长虚线--> 
+                12,2,4,2,4,2,16
+            </Path.StrokeDashArray>
+        </Path>
+
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <!--M100,50 表示起点坐标（x=100, y=50）,L100,200 表示终点坐标（x=100, y=200）-->
+                <PathGeometry Figures="M100,50 L100,200"/>
+            </Path.Data>
+            <Path.StrokeDashArray>
+                 <!--定义虚线样式：两短虚线 + 两长虚线--> 
+                6,1,2,1,2,1,6
+            </Path.StrokeDashArray>
+        </Path>
+
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <!--M100,50 表示起点坐标（x=100, y=50）,L100,200 表示终点坐标（x=100, y=200）-->
+                <PathGeometry Figures="M100,50 L100,200"/>
+            </Path.Data>
+            <Path.StrokeDashArray>
+                 <!--定义虚线样式：两短虚线 + 两长虚线--> 
+                6,1,2,1,2,1,6
+            </Path.StrokeDashArray>
+        </Path>
+
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry Figures="M0,0 L200,360"/>
+            </Path.Data>
+            <!--<Path.StrokeDashArray>
+                --><!-- 定义虚线样式：两短虚线 + 两长虚线 --><!--
+                10,2,2,2,12,2,2,2,16
+            </Path.StrokeDashArray>-->
+        </Path>
+        <Path Stretch="Fill" Fill="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+Stroke="{x:Static IP_Controls:ColorLibrary.BorderColorB}" 
+RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Data>
+                <PathGeometry Figures="M200,200 L0,360"/>
+            </Path.Data>
+            <!--<Path.StrokeDashArray>
+                --><!-- 定义虚线样式：两短虚线 + 两长虚线 --><!--
+                10,2,2,2,12,2,2,2,16
+            </Path.StrokeDashArray>-->
+        </Path>
+
+    </Grid>
+</UserControl>
