@@ -68,7 +68,7 @@ namespace LoginApp.Wpf
                 StatusTextBlock.Foreground = Brushes.Red;
                 return;
             }
-
+            //check password
             var selectSql = "SELECT Pwd FROM UsersInfo WHERE UserName = @UserName";
             var storedPassword = _dbHelper.ExecuteScalar(selectSql, CommandType.Text,
                                     _dbHelper.CreateParameter("@UserName", username));
